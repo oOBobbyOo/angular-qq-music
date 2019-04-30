@@ -1,0 +1,56 @@
+<div class="search-container">
+  <div class="search-bar">
+    <div class="search-form">
+      <form action="#" method="GET">
+        <input [(ngModel)]="searchName" (keyup)="onKeyUp($event)" (keyup.enter)="onEnter($event)" (focus)="onFocus($event)" name="sarchName" class="search-input" type="search" autocomplete="off" autocorrect="off" placeholder="搜索歌曲、歌单、专辑" />
+        <span class="icon-search">搜索</span>
+        <span class="icon-delete" [ngStyle]="{'display' : isShowDelete ? 'block' : 'none'}" (click)="onDelete()">删除</span>
+      </form>
+    </div>
+    <div class="search-tip" [ngStyle]="{'display' : isShowCancel ? 'block' : 'none'}" (click)="onCancel()">取消</div>
+  </div>
+  <div class="search-content">
+
+    <!-- 热门搜索 -->
+    <div class="hot-search" [ngStyle]="{'display' : isShowCancel ? 'none' : 'block'}">
+      <h3>热门搜索</h3>
+      <div class="hot-tags">
+        <ng-container *ngFor="let tag of hotTags">
+          <a href="javascript:;" class="tags">{{tag}}</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- 搜索记录 -->
+    <div class="search-record" [ngStyle]="{'display' : isShowRecord ? 'block' : 'none'}">
+      <ul class="record-list">
+        <li class="record-item" *ngFor="let record of recordList; let index=index;">
+          <span class="icon-clock"></span>
+          <span class="record-txt">{{record}}</span>
+          <span class="icon-close" (click)="deleteRecord(index)"></span>
+        </li>
+      </ul>
+      <p (click)="clearAllRecord()">清除搜索记录</p>
+    </div>
+
+    <!-- 搜索列表 -->
+    <ul class="search-list" [ngStyle]="{'display' : isShowSearch ? 'block' : 'none'}">
+      <li class="search-item" *ngFor="let item of searchData">
+        <div class="search-avater">
+          <img *ngIf="item.songpic" [src]="item.songpic" alt="{{item.songname}}">
+        </div>
+        <div class="search-info">
+          <h3>{{item.songname}}</h3>
+          <p>{{item.singer[0].name}}</p>
+        </div>
+      </li>
+    </ul>
+
+    <!-- 搜索不匹配 -->
+    <div class="search-null" [ngStyle]="{'display' : isShowNull ? 'block' : 'none'}">
+      <i></i>
+      <h6>无匹配</h6>
+      <p>很抱歉，没有找到与“{{searchName}}”相关的结果。</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="hot-container">
+  <div class="slider-container">
+    <app-slider [sliderData]="hotData.slider">
+      <div class="slider-item" *ngFor="let item of hotData.slider">
+        <ng-container *ngIf="item.url; else elseTemplate">
+          <a [href]="item.url">
+            <img [src]="item.imageUrl">
+          </a>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <a href="javascript:;">
+            <img [src]="item.imageUrl">
+          </a>
+        </ng-template>
+      </div>
+    </app-slider>
+  </div>
+  <div class="hot-content">
+    <h2 class="hot-title">热门歌单推荐</h2>
+    <ul class="hot-list">
+      <ng-container *ngFor="let item of hotData.recommend">
+        <app-recommend [recommend]="item"></app-recommend>
+      </ng-container>
+    </ul>
+  </div>
+</div>

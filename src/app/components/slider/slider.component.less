@@ -1,0 +1,32 @@
+.slider-wrapper{
+  min-height: 1px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  .slider-group{
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .slider-dots{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 12px;
+    text-align: center;
+    font-size: 0;
+    .slider-dot {
+      display: inline-block;
+      margin: 0 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ccc;
+    }
+    .active{
+      width: 20px;
+      border-radius: 5px;
+      background: #fff;
+    }
+  }
+}

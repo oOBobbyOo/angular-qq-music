@@ -1,0 +1,30 @@
+@import '../../../assets/styles/mixins.less';
+
+.hot-item{
+  display: flex;
+  margin-bottom: 0.3rem;
+  .hot-img{
+    width: 1.28rem;
+    height: 1.28rem;
+    img{
+      width: 100%;
+    }
+  }
+  .hot-info{
+    flex: 1;
+    padding-left: 0.3rem;
+    overflow: hidden;
+    h3{
+      font-size: 0.32rem;
+      color: #000;
+      font-weight: 400;
+      .line-clamp(2);
+    }
+    p{
+      max-width: 70%;
+      font-size: 0.24rem; 
+      color: rgba(0, 0, 0, .6);
+      .ellipsis();
+    }
+  }
+}

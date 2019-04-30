@@ -1,0 +1,8 @@
+<div class="slider-wrapper" #sliderWrapper>
+  <div class="slider-group" #sliderGroup>
+    <ng-content></ng-content>
+  </div>
+  <div class="slider-dots">
+    <span *ngFor="let dot of dots; let index=index" class="slider-dot" [ngClass]="{'active': currentPageIndex === index}"></span>
+  </div>
+</div>

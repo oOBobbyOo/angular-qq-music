@@ -1,0 +1,17 @@
+<div class="topic">
+  <ul>
+    <ng-container *ngFor="let item of topList">
+      <li class="topic-item">
+        <div class="topic-media">
+          <img [src]="item.picUrl" alt="{{item.topTitle}}">
+        </div>
+        <div class="topic-info">
+          <h3>{{item.topTitle}}</h3>
+          <ng-container *ngFor="let song of item.songList; let index=index;">
+            <p>{{index + 1}} <span>{{song.songname}}</span> - {{song.singername}}</p>
+          </ng-container>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</div>
